@@ -31,7 +31,12 @@ const OrderModel = ({ selected, socket, updateFunds, setlogged }) => {
     const handleClick = async (side) => {
         const obj = { side, selected, quantity, amount };
         try {
-            const order = await axios.post("/placeOrder", obj, {
+          if(quantity < 0 && amount < 0){
+            setSnackBarColor("red");
+            setSnackBarText("Quantity and amount should be more than 0");
+            return;
+          }
+          const order = await axios.post("/placeOrder", obj, {
                 headers: {
                     "x-auth-token": localStorage.getItem("auth-token")
                 }
@@ -72,12 +77,12 @@ const OrderModel = ({ selected, socket, updateFunds, setlogged }) => {
             <TextField size="small" style={{ marginBottom: "0.75em", "[disabled]": { color: "black !important" } }} label={"Price"} disabled variant={"outlined"} value={price} />
 
             < TextField size="small" style={{ marginBottom: "0.75em" }} type="number"
-                value={quantity} autoFocus
+                value={quantity} autoFocus InputProps={{inputProps={ min: 0}}}
                 onChange={(e) => { setQuantity(e.currentTarget.value); setAmount(e.currentTarget.value * price) }}
                 variant={"outlined"} label={"Quantity"} />
 
             <TextField size="small" style={{ marginBottom: "0.75em" }} type="number"
-                value={amount} autoFocus
+                value={amount} autoFocus InputProps={{inputProps={ min: 0}}}
                 onChange={(e) => { setAmount(e.currentTarget.value); setQuantity((e.currentTarget.value / price).toFixed(4)) }}
                 variant={"outlined"} label={"USDT Amount"} />
 
