@@ -1,38 +1,57 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700&display=swap');
+
+
+
+*{
+  box-sizing: border-box;
+  margin: 0%;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+.invisible-scrollbar::-webkit-scrollbar {
+  display: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* Track */
+::-webkit-scrollbar-track {
+  
 }
 
-.App-link {
-  color: #61dafb;
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgba(8,8,8,0.1);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(8,8,8,0.5);
+}
+
+
+.table-row{
+  cursor: pointer;
+}
+
+.table-row:hover {
+  background: rgba(5, 5, 5, 0.1);
+}
+
+.t-cell-trade {
+  padding-left: 1px !important;
+  padding-right: 1px !important;
+
+}
+
+
+.home-screen {
+  background: url("./assets/pattern.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 0% 5%;
 }
