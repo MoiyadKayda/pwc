@@ -32,7 +32,7 @@ const OrderModel = ({ selected, socket, updateFunds, setlogged }) => {
         const obj = { side, selected, quantity, amount };
         try {
           if(quantity < 0 && amount < 0){
-            setSnackBarColor("red");
+            setSnackBarColor("error");
             setSnackBarText("Quantity and amount should be more than 0");
             return;
           }
