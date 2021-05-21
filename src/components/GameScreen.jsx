@@ -20,7 +20,7 @@ const GameScreen = ({ setlogged }) => {
     const [selectedCoin, setSelectedCoin] = useState("BTCUSDT");
     const [fundsList, setFundsList] = useState();
 
-    const [socket,] = useState(io("http://localhost:5000", { autoConnect: false }));
+    const [socket,] = useState(io("https://pwc-backend.herokuapp.com/", { autoConnect: false }));
 
     const fundReq = async function () {
 
